@@ -309,7 +309,35 @@
     }
 
     /* ============== About ============== */
-    .about-section { border-top: 1px solid var(--border); }
+    .about-section { border-top: 1px solid var(--border); } 
+    /* Avatar */
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 1.75rem;
+      position: relative;
+      box-shadow: 0 8px 28px -10px rgba(45, 37, 33, 0.25);
+    }
+    .avatar::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 22%;
+    }
+    @media (max-width: 720px) {
+      .avatar { width: 130px; height: 130px; margin-bottom: 1.25rem; }
+    }
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -712,6 +740,9 @@
     <div class="container">
       <div class="about-grid">
         <div>
+          <div class="avatar">
+              <img src="images/avatar.jpg" alt="Promise Ezeike — Data Analyst and Analytics Engineer">
+          </div>
           <p class="section-label">About</p>
           <h2 class="section-title">Engineer-turned-<span class="ink">analyst</span>.</h2>
         </div>
@@ -1014,7 +1045,7 @@
       <p class="section-label">Get in touch</p>
       <h2>Let's <span class="accent">talk data</span>.</h2>
       <p class="footer-lead">
-        Currently open to mid-to-senior Data Analyst and Analytics Engineer roles in the UK. The fastest way to reach me is email, but LinkedIn works too.
+        Currently open to entry-mid Data Analyst and Analytics Engineer roles in the UK. The fastest way to reach me is email, but LinkedIn works too.
       </p>
 
       <div class="contact-grid">
@@ -1032,7 +1063,7 @@
         </div>
         <div class="contact-item">
           <span class="contact-item-label">Based in</span>
-          <a href="#">Manchester, UK</a>
+          <a href="#">Liverpool, UK</a>
         </div>
       </div>
 
