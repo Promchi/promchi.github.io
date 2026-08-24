@@ -810,28 +810,31 @@
           <div class="card-body">
             <div class="card-section">
               <h4>Objective</h4>
-              <p>Build a single trusted analytical layer for a B2B SaaS business that answers <strong>customer churn, revenue leakage, and lead conversion</strong> 
-                from a unified data model combining CRM, ERP and web event data (GA4).</p>
+              <p>Build a single trusted analytical layer for a B2B SaaS business that answers customer churn, revenue leakage and lead conversion from a unified data model,
+                and make that layer usable by more than one kind of consumer.</p>
             </div>
             <div class="card-section">
               <h4>Approach</h4>
-              <p>Ingested 14 source tables across HubSpot, ERPNext and GA4 via <strong>Airbyte → GCS → BigQuery</strong>. 
-                Modelled in dbt Core across 14 staging, 5 intermediate and 3 mart layers with strict separation of concerns.
-              Visualisation in Looker/Data Studio</p>
+              <p>Generated 14 source tables modelled on CRM, ERP and web event schemas, with deliberate data quality defects, and loaded them into BigQuery. 
+                Modelled in dbt Core across 14 staging, 5 intermediate and 3 mart models with strict separation of concerns. 
+                Documented all 159 mart columns with business meaning, unit and scale, grain and permitted values, persisted into BigQuery metadata. 
+                Served the mart layer to two independent consumers: Looker Studio dashboards, and a conversational agent built on Vertex AI, LangChain and MCP Toolbox,
+                deployed on Cloud Run. Both CI and deployment run through GitHub Actions with no stored credentials.</p>
             </div>
             <div class="card-section">
               <h4>Result</h4>
-              <p><strong>Delivered a data pipeline product. Surfaced £12.39 revenue per £1 marketing spend,</strong> 8% lead-to-close vs the 10–20% B2B SaaS benchmark, 
-                399.9-day average close cycle, 12.51% payment failure rate, and a 34.71% overall churn risk score. Identified Logistics and Manufacturing ARR as the highest-risk segment. 
-                Recommended tightening SDR qualification (12% conversion target, two quarters),
-                restructuring campaigns below 2× ROI, and lifting the 69.6% collection rate through payment-systems work.
+              <p>Delivered a governed data product. Surfaced £12.39 revenue per £1 marketing spend, 8% lead-to-close against the 10 to 20% B2B SaaS benchmark, 
+                a 399.9-day average close cycle, 12.51% payment failure rate, and a 34.71% overall churn risk score. Identified Logistics and Manufacturing ARR
+                as the highest-risk segment. Recommended tightening SDR qualification to a 12% conversion target over two quarters, restructuring campaigns below 2× ROI, 
+                and lifting the 69.6% collection rate through payment-systems work. Documenting the mart layer surfaced five data quality defects that had been feeding 
+                dashboards undetected, and the first CI run caught a model referencing a column that no longer existed.
               </p>
             </div>
           </div>
 
           <div class="card-footer">
             <div class="card-tech">
-              <span>GCP</span><span>Airbyte</span><span>BigQuery</span><span>dbt Core</span><span>Data Studio</span><span>SQL</span>
+              <span>GCP</span><span>BigQuery</span><span>dbt Core</span><span>Python</span><span>SQL</span><span>Looker Studio</span><span>Vertex AI</span><span>LangChain</span><span>Cloud Run</span><span>GitHub Actions</span>
             </div>
             <a class="card-link" href="https://github.com/Promchi/revenue-intelligence-platform-on-gcp" target="_blank" rel="noopener">View on GitHub →</a>
           </div>
